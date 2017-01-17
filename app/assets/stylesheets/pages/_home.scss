@@ -2,3 +2,27 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+h1{
+	color: white;
+    border-left-width: 0px;
+    padding-left: 437px;
+    padding-bottom: 61px;
+    padding-right: 437px;
+    padding-top: 61px;
+    text-align: center;
+
+};
+
+h3{
+	color: white;
+    width: 1252px;
+    padding-left: 274px;
+    padding-right: 274px;
+    text-align: center;
+};
+
+body{
+	background-image:url(http://i.imgur.com/5x9Fpij.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+};
