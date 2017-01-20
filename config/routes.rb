@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   resources :artists
   resources :users
   root to: 'pages#home'

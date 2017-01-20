@@ -2,7 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-h1{
+.home-page{
 	color: white;
     border-left-width: 0px;
     padding-left: 437px;
@@ -13,7 +13,7 @@ h1{
 
 };
 
-h3{
+.home-page2{
 	color: white;
     width: 1252px;
     padding-left: 274px;
@@ -26,3 +26,6 @@ body{
 	background-repeat: no-repeat;
 	background-size:cover;
 };
+.card{
+    background-color: rgba(149, 126, 114,0.7);
+}

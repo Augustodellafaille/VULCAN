@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116155348) do
+ActiveRecord::Schema.define(version: 20170120080410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20170116155348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer  "artists_id"
+    t.integer  "users_id"
+    t.string   "delivery_time"
+    t.string   "item"
+    t.string   "price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["artists_id"], name: "index_transactions_on_artists_id", using: :btree
+    t.index ["users_id"], name: "index_transactions_on_users_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "surname"
@@ -34,4 +46,6 @@ ActiveRecord::Schema.define(version: 20170116155348) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "transactions", "artists", column: "artists_id"
+  add_foreign_key "transactions", "users", column: "users_id"
 end
