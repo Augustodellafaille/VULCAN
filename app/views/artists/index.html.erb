@@ -7,33 +7,13 @@
 
 <h1>Artists</h1>
 
-<table>
- <!--  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody> -->
+ 
     <% @artists.each do |artist| %>
-      <!-- <tr>
-        <td><%= artist.name %></td>
-        <td><%= artist.surname %></td>
-        <td><%= artist.address %></td>
-        <td><%= artist.email %></td>
-        <td><%= artist.category %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr> -->
+      
       <div class="row">
         <div class="col-xs-6 col-sm-3">
-          <div class="card">
+          <div class="card card-artist">
             <h3 class="card-header"><%= artist.name %> <%=artist.surname %></h3>
             <div class="card-block">
                 <h4 class="card-title"><%= artist.category%></h4>
@@ -50,8 +30,7 @@
       </div>
     </div>
     <% end %>
-  <!-- </tbody> -->
-<!-- </table> -->
+ 
 
 <br>
 
