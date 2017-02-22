@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222092335) do
+ActiveRecord::Schema.define(version: 20170222162817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,21 @@ ActiveRecord::Schema.define(version: 20170222092335) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.text     "bio"
     t.index ["email"], name: "index_artists_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
+    t.float    "price"
+    t.text     "description"
+    t.integer  "artists_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["artists_id"], name: "index_products_on_artists_id", using: :btree
+  end
+
+  create_table "transfers", force: :cascade do |t|
     t.integer  "artists_id"
     t.integer  "users_id"
     t.string   "delivery_time"
@@ -44,8 +54,8 @@ ActiveRecord::Schema.define(version: 20170222092335) do
     t.string   "price"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["artists_id"], name: "index_transactions_on_artists_id", using: :btree
-    t.index ["users_id"], name: "index_transactions_on_users_id", using: :btree
+    t.index ["artists_id"], name: "index_transfers_on_artists_id", using: :btree
+    t.index ["users_id"], name: "index_transfers_on_users_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,10 +74,12 @@ ActiveRecord::Schema.define(version: 20170222092335) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.text     "bio"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "transactions", "artists", column: "artists_id"
-  add_foreign_key "transactions", "users", column: "users_id"
+  add_foreign_key "products", "artists", column: "artists_id"
+  add_foreign_key "transfers", "artists", column: "artists_id"
+  add_foreign_key "transfers", "users", column: "users_id"
 end
