@@ -1,9 +1,19 @@
 <ul class="nav nav-pills">
-  <li role="presentation" ><a href="/">Home</a></li>
-  <li role="presentation"><a href="users">Users</a></li>
-  <li role="presentation" class="active"><a href="artists">Artisants</a></li>
+  <li role="presentation"><a href="/">Home</a></li>
+  <li role="presentation" ><a href="users">Users</a></li>
+  <li role="presentation" class="active"><a href="artists">Artisans</a></li>
+  <li role="presentation" ><a href="artists">profil</a></li>
+  <li role="presentation" ><a href="artists">Transaction</a></li>
+
+  <!-- <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%=%></a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" href="#">My Transactions</a>
+      <a class="dropdown-item" href="destroy_user_session_path">Logout</a>
+    </div>
+  </li> -->
 </ul>
-<p id="notice"><%= notice %></p>
 
 <h1>Artists</h1>
 
@@ -13,13 +23,13 @@
       
       <div class="row">
         <div class="col-xs-6 col-sm-3">
-          <div class="card card-artist">
-            <h3 class="card-header"><%= artist.name %> <%=artist.surname %></h3>
+          <div class="card-artist">
+            <h3 class="card-header"><%= artist.name %></h3>
             <div class="card-block">
                 <h4 class="card-title"><%= artist.category%></h4>
                 <p class="card-text"><%= artist.address %></p>
                 <p class="card-text"><%= artist.email %></p>
-                <a href="#" class="btn btn-primary">Learn more about him</a>
+                <a href="" class="btn btn-primary">Learn more about him</a>
                 <div class= "scaffold bouton">
                   <a><%= link_to 'Show', artist %></a>
                   <a><%= link_to 'Edit', edit_artist_path(artist) %></a>

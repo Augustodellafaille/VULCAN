@@ -1,36 +1,45 @@
+<!-- <ul class="nav nav-pills">
+  <li role="presentation"><a href="/">Home</a></li>
+  <li role="presentation" class="active"><a href="users">Users</a></li>
+  <li role="presentation"><a href="artists">Artisans</a></li>
+</ul>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+    </div>
+  </li> -->
+
 <ul class="nav nav-pills">
   <li role="presentation"><a href="/">Home</a></li>
   <li role="presentation" class="active"><a href="users">Users</a></li>
-  <li role="presentation"><a href="artists">Artisants</a></li>
+  <li role="presentation"><a href="artists">Artisans</a></li>
+  <li role="presentation" ><a href="user(@user)">profil</a></li>
+  <li role="presentation" ><a href="artists">Transaction</a></li>
 </ul>
+
 <p id="notice"><%= notice %></p>
 <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.surname %></td>
-        <td><%= user.address %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row">
+        <div class="col-xs-6 col-sm-3">
+          <div class="card card-artist">
+            <h3 class="card-header"><%= user.name %> <%=user.surname %></h3>
+            <div class="card-block">
+                <h4 class="card-title"><%= user.address%></h4>
+                <p class="card-text"><%= user.email %></p>
+                <div class= "scaffold bouton">
+                  <a><%= link_to 'Show', user %></a>
+                  <a><%= link_to 'Edit', edit_user_path(user) %></a>
+                  <a><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+<%end%>
 
 <br>
 

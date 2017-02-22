@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
   # GET /artists.json
   def index
     @artists = Artist.all
+    @artist = current_user
   end
 
   # GET /artists/1
@@ -69,6 +70,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:name, :surname, :address, :email, :category)
+      params.require(:artist).permit(:name, :surname, :address, :email, :category )
     end
 end
