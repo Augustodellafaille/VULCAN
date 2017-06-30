@@ -3,7 +3,5 @@ class Artist < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :products
-  accepts_nested_attributes_for :products
-  
+  has_many :products  
 end

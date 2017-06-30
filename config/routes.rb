@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :products
   resources :artists
-  	resources :products
   devise_for :artists
   devise_for :users
   resources :transfers

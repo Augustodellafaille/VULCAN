@@ -1,5 +1,3 @@
 class Product < ApplicationRecord
-	belongs_to :artists
-	has_one :transfer
-
+	belongs_to :artist
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222162817) do
+ActiveRecord::Schema.define(version: 20170223161331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,24 +38,13 @@ ActiveRecord::Schema.define(version: 20170222162817) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.float    "price"
+    t.string   "name"
     t.text     "description"
+    t.integer  "price"
     t.integer  "artists_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["artists_id"], name: "index_products_on_artists_id", using: :btree
-  end
-
-  create_table "transfers", force: :cascade do |t|
-    t.integer  "artists_id"
-    t.integer  "users_id"
-    t.string   "delivery_time"
-    t.string   "item"
-    t.string   "price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["artists_id"], name: "index_transfers_on_artists_id", using: :btree
-    t.index ["users_id"], name: "index_transfers_on_users_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,7 +68,4 @@ ActiveRecord::Schema.define(version: 20170222162817) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "products", "artists", column: "artists_id"
-  add_foreign_key "transfers", "artists", column: "artists_id"
-  add_foreign_key "transfers", "users", column: "users_id"
 end
